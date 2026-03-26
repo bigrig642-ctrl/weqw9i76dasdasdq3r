@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ - Setup Suite Docs</title>
+  <meta name="description" content="Frequently asked questions for the Discord setup suite.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="faq.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Setup Suite Docs</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" class="top-nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="api.html">API</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <aside class="sidebar" aria-label="Table of contents">
+      <div class="sidebar-inner">
+        <p class="sidebar-title">On this page</p>
+        <nav class="toc">
+          <a href="#faq-list">Questions</a>
+          <a href="#troubleshooting">Troubleshooting</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main-content" class="content">
+      <section class="hero compact">
+        <p class="eyebrow">FAQ</p>
+        <h1>Common setup and usage questions</h1>
+        <p class="lead">
+          Quick answers for the most common questions around setup commands, ticket access, vouches, and deployment.
+        </p>
+      </section>
+
+      <section id="faq-list">
+        <h2>Questions</h2>
+        <details class="faq-item" open>
+          <summary>Do I need a database server for the docs site?</summary>
+          <p>No. The docs site is fully static and only uses HTML, CSS, and JavaScript.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does the bot still need its existing runtime config?</summary>
+          <p>Yes. The docs site is separate from the Discord bot runtime and does not replace the bot’s environment variables.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I restrict a ticket type to certain members?</summary>
+          <p>Open <code>/setuptickets</code>, select the ticket type, switch the role target to <em>Allowed Opener Roles</em>, and save the roles there.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I switch vouch posts between embed and plain text?</summary>
+          <p>Use <code>/setupvouch</code> and click the embed toggle button.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can GitHub Pages host this site without any build step?</summary>
+          <p>Yes. Commit the files directly and point GitHub Pages at the repository root or the branch that contains them.</p>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if a configured channel or role gets deleted?</summary>
+          <p>The setup view surfaces missing references and the live systems fail gracefully instead of crashing the bot.</p>
+        </details>
+      </section>
+
+      <section id="troubleshooting">
+        <h2>Troubleshooting</h2>
+        <div class="callout note">
+          <strong>Note:</strong> If navigation styles or code copy buttons do not appear locally, make sure
+          <code>styles.css</code> and <code>script.js</code> are in the same folder as the HTML files.
+        </div>
+        <pre><code class="language-text">Quick checks
+- Confirm relative links still point to local files
+- Open the browser developer tools for missing asset errors
+- Verify GitHub Pages is publishing the correct branch and folder
+- Re-run slash command registration after major command changes</code></pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

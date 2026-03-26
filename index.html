@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setup Suite Docs</title>
+  <meta name="description" content="Static documentation for the Discord server setup suite and management systems.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="index.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Setup Suite Docs</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" class="top-nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="api.html">API</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <aside class="sidebar" aria-label="Table of contents">
+      <div class="sidebar-inner">
+        <p class="sidebar-title">On this page</p>
+        <nav class="toc">
+          <a href="#overview">Overview</a>
+          <a href="#primary-commands">Primary Commands</a>
+          <a href="#systems">Core Systems</a>
+          <a href="#operational-notes">Operational Notes</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main-content" class="content">
+      <section class="hero">
+        <p class="eyebrow">Current Info Docs</p>
+        <h1>Server Setup Suite Overview</h1>
+        <p class="lead">
+          This static docs site mirrors the current server setup guide, ticket builder, application builder,
+          giveaway tools, vouch flow, and operations utilities already present in this repository.
+        </p>
+        <div class="hero-actions">
+          <a class="button-link" href="getting-started.html">Open Getting Started</a>
+          <a class="button-link secondary" href="api.html">View Sample API</a>
+        </div>
+      </section>
+
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          The bot is designed as a setup-driven management suite for one or more Discord guilds. It supports
+          welcome configuration, vouch routing, role setup, ticket panel publishing, application reviews,
+          giveaway management, partner tracking, and staff task reminders through slash commands and persistent config.
+        </p>
+        <div class="callout note">
+          <strong>Note:</strong> The docs use relative links and plain static assets so the site can be deployed directly
+          to GitHub Pages without a build step or server runtime.
+        </div>
+      </section>
+
+      <section id="primary-commands">
+        <h2>Primary Commands</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3><code>/setupwelcome</code></h3>
+            <p>Configure the welcome channel, message template, and embed mode.</p>
+          </article>
+          <article class="card">
+            <h3><code>/setupvouch</code></h3>
+            <p>Choose the vouch channel and switch between embed or plain-message posting.</p>
+          </article>
+          <article class="card">
+            <h3><code>/setuproles</code></h3>
+            <p>Assign staff, helper, PM, ticket staff, and app reviewer roles.</p>
+          </article>
+          <article class="card">
+            <h3><code>/setuptickets</code></h3>
+            <p>Build ticket types with ping roles, viewer roles, allowed opener roles, and categories.</p>
+          </article>
+          <article class="card">
+            <h3><code>/setupapps</code></h3>
+            <p>Create application types with questions, review channels, and acceptance roles.</p>
+          </article>
+          <article class="card">
+            <h3><code>/setupview</code></h3>
+            <p>Show the current guild configuration across setup systems and status warnings.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="systems">
+        <h2>Core Systems</h2>
+        <p>
+          The current setup guide covers these systems in the live bot: giveaway configuration, partner tracking,
+          vouch posting, application review, ticket publishing, staff tasks, pricing hooks, and dashboard summaries.
+        </p>
+        <pre><code class="language-text">Example setup flow
+1. Run /setuproles
+2. Run /setupchannels
+3. Build ticket types in /setuptickets
+4. Build application types in /setupapps
+5. Configure /setupwelcome and /setupvouch
+6. Verify the final state with /setupview</code></pre>
+      </section>
+
+      <section id="operational-notes">
+        <h2>Operational Notes</h2>
+        <ul>
+          <li>Guild config is stored persistently and reused across restarts.</li>
+          <li>Ticket and application panels store channel and message references for later refreshes.</li>
+          <li>Deleted channels and roles are surfaced as warnings in the setup view.</li>
+          <li>Role-based access can be scoped by ticket type using allowed opener roles.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

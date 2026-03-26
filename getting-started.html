@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Getting Started - Setup Suite Docs</title>
+  <meta name="description" content="Getting started guide for the Discord setup suite and static docs.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="getting-started.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Setup Suite Docs</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" class="top-nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="api.html">API</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <aside class="sidebar" aria-label="Table of contents">
+      <div class="sidebar-inner">
+        <p class="sidebar-title">On this page</p>
+        <nav class="toc">
+          <a href="#prerequisites">Prerequisites</a>
+          <a href="#install">Install</a>
+          <a href="#configure">Configure</a>
+          <a href="#register">Register Commands</a>
+          <a href="#publish-docs">Publish Docs</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main-content" class="content">
+      <section class="hero compact">
+        <p class="eyebrow">Getting Started</p>
+        <h1>Install, configure, and publish</h1>
+        <p class="lead">
+          These steps cover both the Discord bot setup flow and the static GitHub Pages docs added to this repository.
+        </p>
+      </section>
+
+      <section id="prerequisites">
+        <h2>Prerequisites</h2>
+        <ul>
+          <li>Node.js 18.18 or newer</li>
+          <li>A Discord bot token and application client ID</li>
+          <li>Channel and role IDs for the setup systems you want to use</li>
+          <li>GitHub Pages enabled if you want to publish the docs site</li>
+        </ul>
+      </section>
+
+      <section id="install">
+        <h2>Install</h2>
+        <p>Install bot dependencies from the repository root.</p>
+        <pre><code class="language-bash">npm install</code></pre>
+        <div class="callout tip">
+          <strong>Tip:</strong> For hosting panels such as Bisect Hosting, upload the repository and run the install there
+          instead of uploading a local <code>node_modules</code> folder.
+        </div>
+      </section>
+
+      <section id="configure">
+        <h2>Configure</h2>
+        <p>Copy the example environment file and fill in the required IDs.</p>
+        <pre><code class="language-bash">copy .env.example .env</code></pre>
+        <pre><code class="language-env">TOKEN=your_bot_token
+CLIENT_ID=your_application_id
+GUILD_ID=your_test_guild_id
+AUTO_REGISTER_COMMANDS=true</code></pre>
+        <p>
+          Once the bot is online, use the setup commands in Discord to finish channel, role, ticket, application,
+          giveaway, and vouch configuration.
+        </p>
+      </section>
+
+      <section id="register">
+        <h2>Register Commands</h2>
+        <p>Register slash commands manually if you are not using automatic registration on boot.</p>
+        <pre><code class="language-bash">npm run register
+npm start</code></pre>
+        <p>
+          After the bot starts, configure the main systems with:
+          <code>/setuproles</code>, <code>/setupchannels</code>, <code>/setuptickets</code>,
+          <code>/setupapps</code>, <code>/setupwelcome</code>, and <code>/setupvouch</code>.
+        </p>
+      </section>
+
+      <section id="publish-docs">
+        <h2>Publish Docs</h2>
+        <p>
+          The docs site is fully static. Commit the HTML, CSS, and JavaScript files to your repository and enable GitHub Pages.
+        </p>
+        <pre><code class="language-text">Repository root
+|- index.html
+|- getting-started.html
+|- api.html
+|- faq.html
+|- 404.html
+|- styles.css
+`- script.js</code></pre>
+        <div class="callout note">
+          <strong>Note:</strong> All internal links are relative, so the site works in both a project site and local file previews.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

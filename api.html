@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>API - Setup Suite Docs</title>
+  <meta name="description" content="Sample API reference for the setup suite documentation site.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="api.html">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">Setup Suite Docs</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Menu
+      </button>
+      <nav id="site-nav" class="top-nav" aria-label="Primary">
+        <a href="index.html">Overview</a>
+        <a href="getting-started.html">Getting Started</a>
+        <a href="api.html">API</a>
+        <a href="faq.html">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <aside class="sidebar" aria-label="Table of contents">
+      <div class="sidebar-inner">
+        <p class="sidebar-title">On this page</p>
+        <nav class="toc">
+          <a href="#overview">Overview</a>
+          <a href="#guild-config">GET /guild-config</a>
+          <a href="#ticket-types">POST /ticket-types</a>
+          <a href="#vouches">POST /vouches</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main id="main-content" class="content">
+      <section class="hero compact">
+        <p class="eyebrow">Sample API</p>
+        <h1>Example endpoints for exports and integrations</h1>
+        <p class="lead">
+          The bot itself is command-driven, but these example endpoints show how a companion API could expose setup data,
+          ticket configuration, and vouch submissions for dashboards or external tools.
+        </p>
+      </section>
+
+      <section id="overview">
+        <h2>Overview</h2>
+        <p>
+          These endpoints are documentation examples. They are included so the site looks complete and can serve as a
+          design reference if you later expose setup data through a real HTTP service.
+        </p>
+      </section>
+
+      <section id="guild-config">
+        <h2><code>GET /guild-config/:guildId</code></h2>
+        <p>Return the persisted configuration for a single guild.</p>
+        <pre><code class="language-http">GET /guild-config/123456789012345678
+Accept: application/json</code></pre>
+        <pre><code class="language-json">{
+  "guildId": "123456789012345678",
+  "welcome": {
+    "enabled": true,
+    "channelId": "111111111111111111",
+    "embedMode": true
+  },
+  "vouch": {
+    "enabled": true,
+    "channelId": "222222222222222222",
+    "embedMode": false
+  }
+}</code></pre>
+      </section>
+
+      <section id="ticket-types">
+        <h2><code>POST /guild-config/:guildId/ticket-types</code></h2>
+        <p>Create or update a ticket type definition for a guild.</p>
+        <pre><code class="language-http">POST /guild-config/123456789012345678/ticket-types
+Content-Type: application/json</code></pre>
+        <pre><code class="language-json">{
+  "name": "Billing Support",
+  "style": "danger",
+  "categoryId": "333333333333333333",
+  "pingRoleIds": ["444444444444444444"],
+  "viewerRoleIds": ["555555555555555555"],
+  "accessRoleIds": ["666666666666666666"],
+  "openMessage": "A billing specialist will join shortly."
+}</code></pre>
+      </section>
+
+      <section id="vouches">
+        <h2><code>POST /guild-config/:guildId/vouches</code></h2>
+        <p>Submit a vouch entry that mirrors the bot’s current <code>/vouch</code> flow.</p>
+        <pre><code class="language-http">POST /guild-config/123456789012345678/vouches
+Content-Type: application/json</code></pre>
+        <pre><code class="language-json">{
+  "authorId": "777777777777777777",
+  "targetUserId": "888888888888888888",
+  "message": "Quick responses and clean setup."
+}</code></pre>
+        <div class="callout warning">
+          <strong>Warning:</strong> If you ever implement a real endpoint, keep the Discord-side permission checks and
+          guild scoping consistent with the slash command behavior.
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

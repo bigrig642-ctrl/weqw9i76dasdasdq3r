@@ -1,0 +1,104 @@
+# Setup Suite Static Docs
+
+This repository now includes a minimal static documentation site for GitHub Pages alongside the Discord bot source.
+
+The docs are built with plain HTML, CSS, and a small amount of vanilla JavaScript only. No framework, bundler, build
+step, or server is required.
+
+## Local Preview
+
+You can preview the site in any browser by opening `index.html` directly, or use a lightweight static server if you
+prefer cleaner local routing behavior.
+
+Direct file preview:
+
+```text
+Open index.html in your browser
+```
+
+Optional local server with Python:
+
+```bash
+python -m http.server 8080
+```
+
+Then open:
+
+```text
+http://localhost:8080/index.html
+```
+
+## GitHub Pages Deployment
+
+1. Push this repository to GitHub.
+2. Open the repository settings.
+3. Go to `Pages`.
+4. Under `Build and deployment`, choose `Deploy from a branch`.
+5. Select your branch, usually `main`.
+6. Select the folder that contains the static files.
+   If these files are in the repository root, choose `/ (root)`.
+7. Save the settings and wait for GitHub Pages to publish.
+
+Important notes:
+
+- All local links are relative, so the docs work on a GitHub Pages project site.
+- No root-relative asset paths are used.
+- No build command is needed.
+
+## Repo Structure
+
+```text
+.
+|- index.html
+|- getting-started.html
+|- api.html
+|- faq.html
+|- 404.html
+|- styles.css
+|- script.js
+|- README.md
+|- src/
+|  |- commands/
+|  |- config/
+|  |- events/
+|  |- handlers/
+|  |- interactions/
+|  |- models/
+|  |- scripts/
+|  |- services/
+|  `- utils/
+|- data/
+|- dist/
+`- transcripts/
+```
+
+## Docs Pages
+
+- `index.html`: overview of the current setup suite and systems
+- `getting-started.html`: install, config, command registration, and publishing steps
+- `api.html`: sample endpoint documentation for a companion integration surface
+- `faq.html`: common setup and deployment questions
+- `404.html`: fallback page with a link back to the docs home
+
+## Site Features
+
+- Sticky top header
+- Left sidebar table of contents on docs pages
+- Mobile menu toggle
+- Active nav link highlighting
+- Copy button for code blocks
+- Responsive content layout
+- Dark docs theme consistent with the current setup guide style
+
+## Bot Context
+
+The docs content is based on the current repository state, including:
+
+- welcome setup
+- vouch setup and posting
+- roles setup
+- ticket type builder
+- application builder
+- giveaway and partner tracking notes
+- staff task reminders
+- dashboard and persistence notes
