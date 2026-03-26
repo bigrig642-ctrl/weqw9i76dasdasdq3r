@@ -1,0 +1,2 @@
+# BigRigs-CustomBot-Info
+info
